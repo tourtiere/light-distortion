@@ -2,7 +2,8 @@
 # Light distortion
 
 Distort big images with low memory needs.
-Reimplements shepard's algorithm from ImageMagick to [libvips](https://github.com/libvips/libvips) "mapim" command.
+
+A [libvips](https://github.com/libvips/libvips) reimplementation of ImageMagick's multi-points distortion method: [shepard's algorithm](https://legacy.imagemagick.org/Usage/distorts/#shepards) ([source code](https://github.com/ImageMagick/ImageMagick/blob/2747ccfc1044fc3da6d32ff1ebbca5e926fcf602/MagickCore/distort.c#L2817-L2848)).
 
 ## Usage
 
@@ -11,7 +12,7 @@ python3 light-distortion <INPUT_FILE> <OUTPUT_FILE> <POINTS>
 ```
 Example:
 ```
-python3 light-distortion koala.gif output.gif "30,11 20,11  48,29 58,29"
+python3 light-distortion.py koala.gif output.gif "30,11 20,11  48,29 58,29"
 ```
 | input	 | output| 
 |--------------|--------------------------|
