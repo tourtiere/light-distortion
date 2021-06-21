@@ -22,7 +22,7 @@ def shepards(image: Image, couples: List[Couple]):
         distance = (diff[0]**2 + diff[1]**2)
 
         # We dont want a value less than 1 for weighting
-        # hack to get min(distance, 1) function mapped for every point, but without a min function
+        # hack to get max(distance, 1) function mapped for every point, but without a max function
         distance = ((distance-1).abs() + (distance-1))/2 + 1
 
         weight = distance ** -1
