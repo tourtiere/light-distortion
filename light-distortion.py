@@ -18,15 +18,16 @@ def shepards(image: Image, couples: List[Couple]):
     weights = []
 
     for p1, p2 in couples:
-        diff = index - p2
-        distance = (diff[0]**2 + diff[1]**2)
 
-        # We dont want a value less than 1 for weighting
-        # hack to get max(distance, 1) function mapped for every point, but without a max function
-        distance = ((distance-1).abs() + (distance-1))/2 + 1
+        diff = index - p2
+
+        distance = (diff[0]**2 + diff[1]**2)
+        distance = distance.ifthenelse(distance, 0.1)
 
         weight = distance ** -1
+
         delta = [(p2[0] - p1[0]), (p2[1] - p1[1])] * weight * -1
+
         weights.append(weight)
         deltas.append(delta)
 
