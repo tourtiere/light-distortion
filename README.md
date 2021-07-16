@@ -8,7 +8,7 @@ A [libvips](https://github.com/libvips/libvips) reimplementation of ImageMagick'
 ## Usage
 
 ```
-python3 light-distortion <INPUT_FILE> <OUTPUT_FILE> <POINTS>
+python3 light-distortion.py <INPUT_FILE> <OUTPUT_FILE> <POINTS>
 ```
 Example:
 ```
