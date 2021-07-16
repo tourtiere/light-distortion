@@ -24,7 +24,7 @@ def shepards(image: Image, couples: List[Couple]):
         distance = (diff[0]**2 + diff[1]**2)
         distance = distance.ifthenelse(distance, 0.1)
 
-        weight = distance ** -1
+        weight = 1 / distance
 
         delta = [(p2[0] - p1[0]), (p2[1] - p1[1])] * weight * -1
 
