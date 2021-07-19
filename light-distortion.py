@@ -8,7 +8,7 @@ Point = List[int]
 Couple = tuple[Point, Point]
 
 
-def shepards(image: Image, couples: List[Couple]):
+def shepards(image: Image, couples: List[Couple], power_factor=2):
 
     if (len(couples) == 0):
         return
@@ -22,6 +22,8 @@ def shepards(image: Image, couples: List[Couple]):
         diff = index - p2
 
         distance = (diff[0]**2 + diff[1]**2)
+        if (power_factor != 2):
+            distance = distance ** (power_factor/2)
         distance = distance.ifthenelse(distance, 0.1)
 
         weight = 1 / distance
@@ -32,7 +34,7 @@ def shepards(image: Image, couples: List[Couple]):
         deltas.append(delta)
 
     # add, normalize
-    index += sum(deltas) * sum(weights) ** -1
+    index += sum(deltas) * (1. / sum(weights))
 
     return image.mapim(index, interpolate=pyvips.Interpolate.new('bicubic'))
 
